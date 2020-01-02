@@ -1,28 +1,11 @@
-
 /*
 Octopus Think invoice template
 Created by sarah semark
 January 2020
 */
-@font-face {
-  font-family: 'Inter';
-  font-style:  normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("https://rsms.me/inter/font-files/Inter-Regular.woff2?v=3.11") format("woff2"),
-       url("https://rsms.me/inter/font-files/Inter-Regular.woff?v=3.11") format("woff");
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style:  normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("https://rsms.me/inter/font-files/Inter-SemiBold.woff2?v=3.11") format("woff2"),
-       url("https://rsms.me/inter/font-files/Inter-SemiBold.woff?v=3.11") format("woff");
-}
 
 /* CSS variables, for reference only. */
+/*
 :root{
   --white: #ffffff;
   --grey0: #f8f9fa;
@@ -45,6 +28,7 @@ January 2020
 * {
   box-sizing: border-box;
 }
+*/
 
 /* Globals
 ----------------------------------------------- */
@@ -56,10 +40,12 @@ January 2020
   line-height: 1.4;
   padding: 1cm;
   width: 764px;
-  font-family: 'Inter', "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 #invoice h2 {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: 600;
   font-size: 14pt;
   line-height: 1.2;
@@ -101,10 +87,6 @@ January 2020
   font-weight: 600;
 }
 
-.vcard > div {
-  padding-bottom: 4pt;
-}
-
 .vcard .locality,
 .vcard #company-postcode,
 .vcard #client-postcode {
@@ -114,7 +96,7 @@ January 2020
 #invoice-other {
   display: none;
   text-align: right;
-} 
+}
 
 /* Invoice details */
 #invoice-info {
@@ -160,11 +142,11 @@ January 2020
 /* Tables
 ----------------------------------------------- */
 
-#invoice table#invoice-amount { 
+#invoice table#invoice-amount {
   clear: both;
   display: block;
   padding: 1cm 0;
-  border-collapse:collapse; 
+  border-collapse:collapse;
   width: 100%;
 }
 
@@ -178,6 +160,7 @@ January 2020
   white-space: nowrap;
   padding: 4pt 0;
   text-transform: uppercase;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 9pt;
   font-weight: 600;
   letter-spacing: 0.25pt;
@@ -186,7 +169,22 @@ January 2020
 
 /* Rows */
 #invoice-amount tr {
-  border-bottom: 1pt solid #bec4cd;
+  padding-bottom: 1px;
+  position: relative;
+}
+
+#invoice-amount tr:after {
+  border-bottom: 1px solid #bec4cd;
+  content: "";
+  display: block;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#invoice-amount tr#header_row:after {
+  display: none;
 }
 
 #invoice-amount tbody {
@@ -216,48 +214,49 @@ January 2020
   border: none;
 }
 
-#invoice-amount tfoot td {
-  
-}
-
 /* Total */
 #invoice-amount #total_tr {
   border-top:  2pt solid #181b1c;
 }
 
+#invoice-amount #total_tr #total_currency {
+  display: block;
+  min-width: 200px;
+}
+
 #invoice-amount td.total {
   text-align: right;
   font-size: 14pt;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-weight: 600;
 }
 
-#invoice-amount .quantity_th{
+#invoice-amount .quantity_th {
   width: 15%;
 }
 
-#invoice-amount .details_th{
+#invoice-amount .details_th {
   width: 50%;
 }
+
 #invoice-amount .details_notax_th {
   width: 60%;
 }
 
 #invoice-amount .salestax_th {
-  width: 10%; 
+  width: 10%;
   text-align: center;
 }
 
 #invoice-amount .subtotal_th {
-  width: 15%; 
+  width: 15%;
   text-align: right;
 }
 
 #invoice-amount .unitprice_th {
-  width: 10%; 
+  width: 10%;
   text-align: right;
 }
-
-
 
 /* Invoice UK VAT Summary Table */
 #invoice #invoice-uk-vat-summary{width:100%;border-collapse:collapse;margin:25px 0 0 0;clear:both;border:0; background:#fff; }
@@ -279,3 +278,11 @@ January 2020
   width: 50%;
 }
 
+/*
+UI Fixes
+*/
+@media only screen {
+  #invoice-amount .item_controls {
+    right: -58px !important;
+  }
+}
