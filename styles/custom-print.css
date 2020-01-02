@@ -34,15 +34,6 @@
 }
 
 #invoice {
+  font-size: 0.9em;
   padding-bottom: 0;
-}
-
-#invoice-header {
-  border-width: 4px !important;
-}
-
-table#invoice-amount td,
-table#invoice-amount th,
-div {
-  border-width: 0.05mm !important;
 }

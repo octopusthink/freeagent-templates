@@ -22,7 +22,7 @@ January 2020
        url("https://rsms.me/inter/font-files/Inter-SemiBold.woff?v=3.11") format("woff");
 }
 
-/* CSS variables */
+/* CSS variables, for reference only. */
 :root{
   --white: #ffffff;
   --grey0: #f8f9fa;
@@ -40,10 +40,6 @@ January 2020
   --pink300: #f19dca;
   --pink500: #e33592;
   --pink700: #b32973;
-
-  --cyan300: #76d0d6;
-  --cyan500: #00a8b4;
-  --cyan700: #00858e;
 }
 
 * {
@@ -54,8 +50,8 @@ January 2020
 ----------------------------------------------- */
 
 #invoice {
-  background: var(--white);
-  color: var(--grey900);
+  background: #ffffff;
+  color: #3b3f45;
   font-size: 10pt;
   line-height: 1.4;
   padding: 1cm;
@@ -63,7 +59,7 @@ January 2020
   font-family: 'Inter', "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-h2 {
+#invoice h2 {
   font-weight: 600;
   font-size: 14pt;
   line-height: 1.2;
@@ -75,7 +71,7 @@ h2 {
 
 /* Company details */
 #invoice-header {
-  border-bottom: 2px solid var(--black);
+  border-bottom: 2pt solid #181b1c;
   padding-bottom: 8pt;
   margin-bottom: 0.5cm;
 }
@@ -93,6 +89,7 @@ h2 {
 
 #invoice-header .logo {
   max-width: 320px;
+  float: left;
 }
 
 /* Contact details */
@@ -121,18 +118,26 @@ h2 {
 
 /* Invoice details */
 #invoice-info {
-  width: 50%;
-  float: left;
+  width: 100%;
 }
 
-#invoice-info h3 {
+#invoice-info h2,
+#invoice-info h3,
+#invoice-info p {
+  display: inline-block;
   font-size: inherit;
   font-weight: inherit;
   margin: 0;
 }
 
+#invoice-info h3::before,
+#invoice-info p::before {
+  content: ' · ';
+  display: inline;
+}
+
 #invoice-info h3::before {
-  content: 'Issued ';
+  content: ' · Issued ';
   display: inline;
 }
 
@@ -141,19 +146,15 @@ h2 {
   display: inline;
 }
 
-#payment-terms {
+#invoice-info #payment-terms,
+#invoice-info #payment-total {
   display: none;
 }
 
-#payment-total {
-  display: none;
-}
 
 /* Client details */
 #client-details {
-  padding-top: 20pt;
-  width: 50%;
-  float: right;
+  padding-top: 0.25cm;
 }
 
 /* Tables
@@ -180,16 +181,16 @@ h2 {
   font-size: 9pt;
   font-weight: 600;
   letter-spacing: 0.25pt;
-  border-bottom: 1px solid var(--grey800);
+  border-bottom: 1pt solid #666c76;
 }
 
 /* Rows */
 #invoice-amount tr {
-  border-bottom: 1px solid var(--grey400);
+  border-bottom: 1pt solid #bec4cd;
 }
 
 #invoice-amount tbody {
-  border-bottom: 1px solid var(--grey800);
+  border-bottom: 1pt solid #666c76;
 }
 
 /* Cells */
@@ -221,7 +222,7 @@ h2 {
 
 /* Total */
 #invoice-amount #total_tr {
-  border-top:  2px solid var(--black);
+  border-top:  2pt solid #181b1c;
 }
 
 #invoice-amount td.total {
@@ -269,11 +270,11 @@ h2 {
 
 #invoice #payment-details {
   float: left;
-  width: 50%;
+  width: 30%;
 }
 
 #comments {
-  float: left;
+  float: right;
   padding-top: 20pt;
   width: 50%;
 }
