@@ -60,13 +60,6 @@ January 2020
   line-height: 1.4;
   padding: 1cm;
   width: 764px;
-  display: grid;
-  grid-template-areas:"company company"
-                      "info client"
-                      "content content"
-                      "footer1 footer2";
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1cm;
   font-family: 'Inter', "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
@@ -82,12 +75,16 @@ h2 {
 
 /* Company details */
 #invoice-header {
-  grid-area: company;
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
   border-bottom: 2px solid var(--black);
-  padding-bottom: 4pt;
+  padding-bottom: 8pt;
+  margin-bottom: 0.5cm;
+}
+
+#invoice-header::after {
+  width: 100%;
+  clear: both;
+  display: block;
+  content: '';
 }
 
 #invoice-blank-header {
@@ -100,7 +97,7 @@ h2 {
 
 /* Contact details */
 #company-address {
-  margin-left: 100px;
+  float: right;
 }
 
 .vcard strong {
@@ -118,12 +115,13 @@ h2 {
 #invoice-other {
   display: none;
   text-align: right;
-  grid-area: company;
+  
 } 
 
 /* Invoice details */
 #invoice-info {
-  grid-area: info;
+  width: 50%;
+  float: left;
 }
 
 #invoice-info h3 {
@@ -152,17 +150,17 @@ h2 {
 
 /* Client details */
 #client-details {
-  grid-area: client;
+  width: 50%;
+  float: right;
 }
-
-
-
 
 /* Tables
 ----------------------------------------------- */
 
 #invoice table#invoice-amount { 
-  grid-area: content;
+  clear: both;
+  display: block;
+  padding: 1cm 0;
   border-collapse:collapse; 
   width: 100%;
 }
@@ -268,10 +266,13 @@ h2 {
 ----------------------------------------------- */
 
 #invoice #payment-details {
-  grid-area: footer1;
+  float: left;
+  width: 50%;
 }
 
-#comments{
-  grid-area: footer2;
+#comments {
+  float: left;
+  padding-top: 20pt;
+  width: 50%;
 }
 
