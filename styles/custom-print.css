@@ -11,9 +11,8 @@
   @bottom-center {
     color: #666;
     content: counter(page) "/" counter(pages);
-    font: normal 9pt Arial, Helvetica, sans-serif;
+    font: normal 9pt 'Inter', Helvetica, Arial, sans-serif;
   }
-
 }
 
 /**
