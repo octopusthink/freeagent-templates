@@ -26,16 +26,20 @@ May 2013
   --cyan700: #00858e;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* Globals
 ----------------------------------------------- */
 
 #invoice {
   background: var(--white);
-  border-top: 5px solid var(--pink500);
   color: var(--grey900);
-  font: normal 13px/18px "Helvetica Neue",Arial,Helvetica,sans-serif; /* 13px */
-  padding: 4.615em 0; /* 60/13px */
-  position: relative;
+  font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 0;
   width: 764px;
 }
 #invoice h1,
@@ -104,32 +108,38 @@ May 2013
 
 /* Invoice Header
 ----------------------------------------------- */
-#invoice #client-details {
-  min-height: 1%;
-  position: absolute;
-  top: 4.615em; /* 60/13px */
-}
 #invoice #invoice-header {
-  float: right;
-  margin-right: 2.2321429%; /* 20/896px */
+  background: var(--black);
+  border-bottom: 3px solid var(--pink500);
+  color: var(--grey200);
+  padding: 48px;
   min-height: 12em;
-  width: 18.3035714%; /* 164/896px */
-  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
 }
-#invoice #client-details {
-  left: 0;
-}
-#invoice #invoice-header #company-address {
-  padding-right: 10.8695652%; /* 20/184px */
-}
+
 #invoice #invoice-header img {
-  margin-bottom: 1em;
-  height: auto !important;
-  width: 100% !important;
+  width: 360px;
 }
-#invoice #company-postcode .postal-code {
-  display: block;
+
+#invoice #invoice-header #company-address > div {
+  padding-bottom: 8px;
 }
+
+#company-address .locality,
+#company-address #company-postcode {
+  display: inline;
+}
+
+
+
+
+#invoice #client-details {
+  //left: 0;
+}
+
 #invoice #invoice-header .email {
   word-wrap: break-word;
 }
@@ -161,13 +171,7 @@ May 2013
   font-weight: bold;
   padding-bottom: 1em;
 }
-#invoice #invoice-header,
-#invoice #client-details,
-#invoice #comments,
-#invoice #invoice-other,
-#invoice #payment-details {
-  padding-top: 1em;
-}
+
 #invoice #invoice-other,
 #invoice #payment-details {
   border-top: 1px solid #353B45;
