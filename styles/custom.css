@@ -108,14 +108,15 @@ h2 {
   padding-bottom: 4pt;
 }
 
-.vcard .adr > div {
+.vcard .locality,
+.vcard #company-postcode,
+.vcard #client-postcode {
   display: inline;
 }
 
 #invoice-other {
   display: none;
   text-align: right;
-  
 } 
 
 /* Invoice details */
@@ -150,6 +151,7 @@ h2 {
 
 /* Client details */
 #client-details {
+  padding-top: 20pt;
   width: 50%;
   float: right;
 }
