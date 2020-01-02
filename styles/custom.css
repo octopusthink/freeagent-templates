@@ -86,7 +86,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  border-bottom: 3px solid var(--black);
+  border-bottom: 2px solid var(--black);
   padding-bottom: 4pt;
 }
 
@@ -129,7 +129,7 @@ h2 {
 #invoice-info h3 {
   font-size: inherit;
   font-weight: inherit;
-  margin: 0 0 2pt;
+  margin: 0;
 }
 
 #invoice-info h3::before {
@@ -167,28 +167,96 @@ h2 {
   width: 100%;
 }
 
-#invoice-amount tr.item td {
-  border-top: 0;
+#invoice-amount .item_group_title td {
+  padding-top: 0.75em;
 }
+
+/* Headings */
+#invoice-amount th {
+  text-align: left;
+  white-space: nowrap;
+  padding: 4pt 0;
+  text-transform: uppercase;
+  font-size: 9pt;
+  font-weight: 600;
+  letter-spacing: 0.25pt;
+  border-bottom: 1px solid var(--grey800);
+}
+
+/* Rows */
+#invoice-amount tr {
+  border-bottom: 1px solid var(--grey400);
+}
+
+#invoice-amount tbody {
+  border-bottom: 1px solid var(--grey800);
+}
+
+/* Cells */
+#invoice-amount td {
+  border: none;
+  margin: 0;
+  padding: 8pt 0;
+  vertical-align: top;
+}
+
+#invoice-amount td.item_r {
+  text-align: right;
+}
+
+#invoice-amount td.item_l {
+  text-align: left;
+  white-space: normal;
+}
+
+/* Footer rows */
+#invoice-amount tfoot tr,
 #invoice-amount tfoot td {
-  border-top: 1px solid #ddd;
+  border: none;
 }
-#invoice-amount .item_group_title td {padding-top: 0.75em;}
 
-#invoice-amount th {text-align: left;white-space: nowrap;padding: 1px 2px 0 5px; font-weight: bold;background: #FFF;border-bottom: solid 1px #444; }
-#invoice-amount tr.odd{background: #EEE;}
-#invoice-amount tr.even{background: #FFF;}
-#invoice-amount td {margin: 0;padding: 4px 5px; vertical-align: top;}
-#invoice-amount td.item_r{text-align: right;}
-#invoice-amount td.item_l{text-align: left;white-space: normal;}
-#invoice-amount td.total{text-align: right;font-weight: bold}
+#invoice-amount tfoot td {
+  
+}
 
-#invoice-amount .details_th{width:54%}
-#invoice-amount .details_notax_th{width:62%}
-#invoice-amount .quantity_th{width:13%}
-#invoice-amount .subtotal_th{width:15%; text-align:right}
-#invoice-amount .unitprice_th{width:10%; text-align:right}
-#invoice-amount .salestax_th{width:8%; text-align:center}
+/* Total */
+#invoice-amount #total_tr {
+  border-top:  2px solid var(--black);
+}
+
+#invoice-amount td.total {
+  text-align: right;
+  font-size: 14pt;
+  font-weight: 600;
+}
+
+#invoice-amount .quantity_th{
+  width: 15%;
+}
+
+#invoice-amount .details_th{
+  width: 50%;
+}
+#invoice-amount .details_notax_th {
+  width: 60%;
+}
+
+#invoice-amount .salestax_th {
+  width: 10%; 
+  text-align: center;
+}
+
+#invoice-amount .subtotal_th {
+  width: 15%; 
+  text-align: right;
+}
+
+#invoice-amount .unitprice_th {
+  width: 10%; 
+  text-align: right;
+}
+
+
 
 /* Invoice UK VAT Summary Table */
 #invoice #invoice-uk-vat-summary{width:100%;border-collapse:collapse;margin:25px 0 0 0;clear:both;border:0; background:#fff; }
